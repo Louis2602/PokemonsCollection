@@ -41,7 +41,6 @@ const PokemonCollections: React.FC<Props> = ({
 						<div
 							onClick={() => {
 								selectPokemon(pokemon.id);
-								console.log(pokemon.id);
 							}}
 							key={idx}
 						>

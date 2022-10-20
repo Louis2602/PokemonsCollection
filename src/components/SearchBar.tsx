@@ -1,4 +1,6 @@
 import PokemonCollections, { Props } from './PokemonCollections';
+import PokemonList from './PokemonList';
+import { PokemonDetail } from '../interface';
 import './SearchBar.css';
 
 interface searchProps extends Props {
@@ -13,6 +15,14 @@ const SearchBar: React.FC<searchProps> = ({
 	searchTerm,
 	setSearchTerm,
 }) => {
+	let filter_pokes: PokemonDetail[] = [];
+	filter_pokes = pokemons.filter((poke) => {
+		if (searchTerm === '') return null;
+		else if (poke.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+			filter_pokes.push(poke);
+			return filter_pokes;
+		}
+	});
 	return (
 		<>
 			<div className='search-bar'>
@@ -36,29 +46,11 @@ const SearchBar: React.FC<searchProps> = ({
 					}}
 				/>
 			</div>
-			{pokemons
-				.filter((poke) => {
-					if (searchTerm === '') return '';
-					else if (
-						poke.name
-							.toLowerCase()
-							.includes(searchTerm.toLowerCase())
-					) {
-						pokemons = [];
-						return poke;
-					}
-				})
-				.map((val, idx) => {
-					pokemons.push(val);
-					return (
-						<PokemonCollections
-							key={idx}
-							pokemons={pokemons}
-							viewDetail={viewDetail}
-							setDetail={setDetail}
-						/>
-					);
-				})}
+			<PokemonCollections
+				pokemons={filter_pokes}
+				viewDetail={viewDetail}
+				setDetail={setDetail}
+			/>
 		</>
 	);
 };
