@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Louis2602/PokemonsCollection/static/css/main.b7ea0032.css",
+    "main.js": "/Louis2602/PokemonsCollection/static/js/main.5033890b.js",
+    "index.html": "/Louis2602/PokemonsCollection/index.html",
+    "main.b7ea0032.css.map": "/Louis2602/PokemonsCollection/static/css/main.b7ea0032.css.map",
+    "main.5033890b.js.map": "/Louis2602/PokemonsCollection/static/js/main.5033890b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b7ea0032.css",
+    "static/js/main.5033890b.js"
+  ]
+}
